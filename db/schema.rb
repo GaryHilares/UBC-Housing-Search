@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_18_145348) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_19_173250) do
+  create_table "listings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "residence_id"
+    t.integer "room_type_id"
+    t.integer "monthly_rate"
+    t.integer "security_deposit"
+    t.boolean "open_to_negotiation"
+    t.string "gender"
+    t.string "other_details"
+    t.string "start_date"
+    t.string "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "prorating_available"
+    t.index ["residence_id"], name: "index_listings_on_residence_id"
+    t.index ["room_type_id"], name: "index_listings_on_room_type_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
   create_table "residences", force: :cascade do |t|
     t.string "name"
     t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "room_types", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
