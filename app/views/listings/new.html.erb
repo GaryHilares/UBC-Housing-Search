@@ -1,25 +1,62 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<%= tag.div(flash[:alert], class: "alert alert-danger mx-auto my-3 w-50") if flash[:alert] %>
 
-<%= form_with url: listings_path() do |form| %>
-  <%= form.label :monthly_rate %>
-  <%= form.number_field :monthly_rate, required: true, autofocus: true, autocomplete: "monthly_rate", placeholder: "Enter the monthly rate", step: ".01", min: 0, max: 10000 %><br>
-  <%= form.label :security_deposit %>
-  <%= form.number_field :security_deposit, required: true, autocomplete: "security_deposit", placeholder: "Enter the security deposit amount", step: ".01", min: 0, max: 10000 %><br>
-  <%= form.label :open_to_negotiation %>
-  <%= form.checkbox :open_to_negotiation, autocomplete: "open_to_negotiation" %><br>
-  <%= form.label :prorating_available %>
-  <%= form.checkbox :prorating_available, autocomplete: "prorating_available" %><br>
-  <%= form.label :gender %>
-  <%= form.text_field :gender, required: true, autocomplete: "gender", placeholder: "Describe what gender this room is for" %><br>
-  <%= form.label :other_details %>
-  <%= form.textarea :other_details, required: true, autocomplete: "other_details", placeholder: "Describe what gender this room is for" %><br>
-  <%= form.label :start_date %>
-  <%= form.date_field :start_date, required: true, autocomplete: "start_date" %><br>
-  <%= form.label :end_date %>
-  <%= form.date_field :end_date, required: true, autocomplete: "end_date" %><br>
-  <%= form.label :new_listing_residence_id %>
-  <%= collection_select("", :residence_id, @residences, :id, :name) %>
-  <%= form.label :new_listing_roomtype_id %>
-  <%= collection_select("", :roomtype_id, @roomtypes, :id, :name) %>
-  <%= form.submit "Post new listing" %>
+<%= form_with url: listings_path(), class: "mx-auto my-3 w-50" do |form| %>
+  <h1>Create a new listing</h1>
+  <fieldset>
+    <h2 class="my-2">Residence</h2>
+    <div class="form-group">
+      <%= form.label :new_listing_residence_id, class: "my-1" %>
+      <%= collection_select("", :residence_id, @residences, :id, :name, {}, {:class=>"form-select"}) %>
+    </div>
+    <div class="form-group">
+      <%= form.label :new_listing_roomtype_id, class: "my-1" %>
+      <%= collection_select("", :roomtype_id, @roomtypes, :id, :name, {}, {:class=>"form-select"}) %>
+    </div>
+  </fieldset>
+  <fieldset>
+    <h2 class="my-2">Availability</h2>
+    <div class="form-group">
+        <%= form.label :gender, class: "my-1" %>
+        <%= form.text_field :gender, class: "form-control", required: true, autocomplete: "gender", placeholder: "Describe what gender this room is for" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :start_date, class: "my-1" %>
+      <%= form.date_field :start_date, class: "form-control", required: true, autocomplete: "start_date" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :end_date, class: "my-1" %>
+      <%= form.date_field :end_date, class: "form-control", required: true, autocomplete: "end_date" %>
+    </div>
+  </fieldset>
+  <fieldset>
+    <h2 class="my-2">Fees</h2>
+    <div class="form-group">
+        <%= form.label :monthly_rate, class: "my-1" %>
+        <%= form.number_field :monthly_rate, class: "form-control", required: true, autofocus: true, autocomplete: "monthly_rate", placeholder: "Enter the monthly rate", step: ".01", min: 0, max: 10000 %>
+    </div>
+    <div class="form-group">
+      <%= form.label :security_deposit, class: "my-1" %>
+      <%= form.number_field :security_deposit, class: "form-control", required: true, autocomplete: "security_deposit", placeholder: "Enter the security deposit amount", step: ".01", min: 0, max: 10000 %>
+    </div>
+    <div class="form-group">
+      <div class="form-check my-1">
+        <%= form.checkbox :open_to_negotiation, class: "form-check-input", autocomplete: "open_to_negotiation" %>
+        <%= form.label :open_to_negotiation, class: "form-check-label" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check my-1">
+        <%= form.checkbox :prorating_available, class: "form-check-input", autocomplete: "prorating_available" %>
+        <%= form.label :prorating_available, class: "form-check-label" %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <h2 class="my-2">Other details</h2>
+    <div class="form-group">
+      <%= form.label :other_details, class: "my-1" %>
+      <%= form.textarea :other_details, class: "form-control", required: true, autocomplete: "other_details", placeholder: "Describe other details about this room." %>
+    </div>
+  </fieldset>
+  <%= form.submit "Post new listing", class: "btn btn-primary my-3" %>
 <% end %>

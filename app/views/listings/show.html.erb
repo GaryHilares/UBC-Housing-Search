@@ -1,6 +1,32 @@
-<div>
-    <span><%= @listing.other_details %></span>
-    <span><%= @user.email_address %></span>
-    <span><%= @roomtype.name %></span>
-    <span><%= @residence.name %></span>
+<div class="w-50 mx-auto my-3">
+    <h1>Listing #<%= @listing.id %></h1>
+    <h2>Residence</h2>
+    <dl>
+        <dt>Residence name</dt>
+        <dd><%= @residence.name %></dd>
+        <dt>Room type</dt>
+        <dd><%= @roomtype.name %></dd>
+    </dl>
+    <h2>Availability</h2>
+    <dl>
+        <dt>Gender</dt>
+        <dd><%= @listing.gender %></dd>
+        <dt>Start date</dt>
+        <dd><%= @listing.start_date %></dd>
+        <dt>End date</dt>
+        <dd><%= @listing.end_date %></dd>
+    </dl>
+    <h2>Fees</h2>
+    <dl class="table">
+        <dt>Monthly rate</dt>
+        <dd><%= @listing.monthly_rate %></dd>
+        <dt>Security deposit</dt>
+        <dd><%= @listing.security_deposit %></dd>
+        <dt>Open to negotiation?</dt>
+        <dd><%= @listing.open_to_negotiation ? "Yes" : "No" %></dd>
+        <dt>Prorating available?</dt>
+        <dd><%= @listing.prorating_available ? "Yes" : "No" %></dd>
+    </dl>
+    <h2>Other details</h2>
+    <p><%= @listing.other_details %></p>
 </div>

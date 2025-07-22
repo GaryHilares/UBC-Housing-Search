@@ -37,7 +37,7 @@ class ListingsController < ApplicationController
       redirect_to listing_url(id: listing.id)
     end
   rescue ArgumentError
-    flash[:error] = "One of the parameters you passed was not valid"
+    flash[:alert] = "At least one of your answers is not valid."
     redirect_to new_listing_url()
   end
 
