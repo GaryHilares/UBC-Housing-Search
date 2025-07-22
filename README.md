@@ -1,4 +1,4 @@
-# UBC Housing Search
+<h1 align="center">UBC Housing Search</h1>
 
 <p align="center">
   <img alt="badge-lastcommit" src="https://img.shields.io/github/last-commit/GaryHilares/UBC-Housing-Search?style=for-the-badge">
