@@ -1,24 +1,27 @@
-# README
+# UBC Housing Search
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p align="center">
+  <img alt="badge-lastcommit" src="https://img.shields.io/github/last-commit/GaryHilares/UBC-Housing-Search?style=for-the-badge">
+  <img alt="badge-openissues" src="https://img.shields.io/github/issues-raw/GaryHilares/UBC-Housing-Search?style=for-the-badge">
+  <img alt="badge-license" src="https://img.shields.io/github/license/GaryHilares/UBC-Housing-Search?style=for-the-badge">
+  <img alt="badge-contributors" src="https://img.shields.io/github/contributors/GaryHilares/UBC-Housing-Search?style=for-the-badge">
+  <img alt="badge-codesize" src="https://img.shields.io/github/languages/code-size/GaryHilares/UBC-Housing-Search?style=for-the-badge">
+</p>
 
-Things you may want to cover:
+## What is UBC Housing Search?
 
-* Ruby version
+Despite UBC students usually use Facebook Masterplace to post sublet listings, the UI has a lot of fields that are irrelevant to UBC sublet posts. Not only that, but the questions posted by
 
-* System dependencies
+UBC Housing Search is a website for co-op
 
-* Configuration
+## Installation and usage
 
-* Database creation
+To start a development server, follow these steps:
 
-* Database initialization
+1. Copy the repository
+2. Open a terminal on the root of the project
+3. Run `bin/rails server`.
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Currently, all rights for this project are reserved.
