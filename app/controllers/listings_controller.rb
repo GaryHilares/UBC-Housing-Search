@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  allow_unauthenticated_access only: %i[ index show ]
+
   def new
     @residences = Residence.all.select([:id, :name])
     @roomtypes = RoomType.all.select([:id, :name])
@@ -46,5 +48,13 @@ class ListingsController < ApplicationController
     @user = @listing.user
     @roomtype = @listing.room_type
     @residence = @listing.residence
+  end
+
+  def index
+    @listings = Listing
+      .joins(:room_type, :residence)
+      .select(
+        "listings.id as id, monthly_rate, security_deposit, start_date, end_date, open_to_negotiation, prorating_available, gender, residences.name AS residence_name, room_types.name AS roomtype_name"
+      )
   end
 end

@@ -1,0 +1,32 @@
+<main class="w-75 mx-auto my-3">
+<table class="table m-auto">
+    <theader>
+        <th>Residence</th>
+        <th>Room type</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Monthly rate (CAD$)</th>
+        <th>Security deposit (CAD$)</th>
+        <th>Open to negotiation?</th>
+        <th>Prorating available?</th>
+        <th>Gender</th>
+        <th>Link</th>
+    </theader>
+    <tbody>
+        <% @listings.each do |listing| %>
+            <tr>
+                <td><%= listing.residence_name %></td>
+                <td><%= listing.roomtype_name %></td>
+                <td><%= listing.start_date %></td>
+                <td><%= listing.end_date %></td>
+                <td style="text-align: right;"><%= listing.monthly_rate %></td>
+                <td style="text-align: right;"><%= listing.security_deposit %></td>
+                <td><%= listing.open_to_negotiation ? "Yes" : "No" %></td>
+                <td><%= listing.prorating_available ? "Yes" : "No" %></td>
+                <td><%= listing.gender %></td>
+                <td><%= link_to "Click", listing_url(listing.id) %>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+</main>
