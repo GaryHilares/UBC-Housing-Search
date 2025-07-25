@@ -42,9 +42,12 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <%= authenticated? ? link_to("Log out", session_url(), :method => :delete) : tag.a("Log in", class: "nav-link", href: "#") %>
-                </li>
+                <% if authenticated? %>
+                    <li class="nav-item"><%= link_to "Log out", session_url(), class: "nav-link", data: { turbo_method: :delete } %></li>
+                <% else %>
+                    <li class="nav-item"><%= link_to "Register", new_user_url(), class: "nav-link" %></li>
+                    <li class="nav-item"><%= link_to "Log in", new_session_url(), class: "nav-link" %></li>
+                <% end %>
             </ul>
         </div>
     </nav>
