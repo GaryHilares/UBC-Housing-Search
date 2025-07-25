@@ -1,18 +1,20 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<main class="w-75 mx-auto my-3">
+    <%= tag.div(flash[:alert], class: "alert alert-danger") if flash[:alert] %>
 
-<%= form_with url: users_path(), method: :POST, class: "w-75 mx-auto my-3" do |form| %>
-  <h1>Register</h1>
-  <div class="form-group">
-    <label for="email" class="my-1">Email address</label>
-    <%= form.email_field :email, required: true, autocomplete: "email", placeholder: "Enter your email", maxlength: 72, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <label for="password" class="my-1">Password</label>
-    <%= form.password_field :password, required: true, autocomplete: "new-password", placeholder: "Enter new password", maxlength: 72, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <label for="password" class="my-1">Repeat password</label>
-    <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", placeholder: "Repeat new password", maxlength: 72, class: "form-control" %>
-  </div>
-  <%= form.submit "Save", class: "btn btn-primary my-3" %>
-<% end %>
+    <%= form_with url: users_path(), method: :POST do |form| %>
+      <h1>Register</h1>
+      <div class="form-group">
+        <label for="email" class="my-1">Email address</label>
+        <%= form.email_field :email, required: true, autocomplete: "email", placeholder: "Enter your email", maxlength: 72, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="password" class="my-1">Password</label>
+        <%= form.password_field :password, required: true, autocomplete: "new-password", placeholder: "Enter new password", maxlength: 72, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="password" class="my-1">Repeat password</label>
+        <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", placeholder: "Repeat new password", maxlength: 72, class: "form-control" %>
+      </div>
+      <%= form.submit "Save", class: "btn btn-primary my-3" %>
+    <% end %>
+</main>
