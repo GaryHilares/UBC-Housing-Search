@@ -2,8 +2,8 @@ class ListingsController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
 
   def new
-    @residences = Residence.all.select([:id, :name])
-    @roomtypes = RoomType.all.select([:id, :name])
+    @residences = Residence.all.select([ :id, :name ])
+    @roomtypes = RoomType.all.select([ :id, :name ])
   end
 
   def create
