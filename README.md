@@ -18,9 +18,11 @@ UBC Housing Search is a website for co-op
 
 To start a development server, follow these steps:
 
-1. Copy the repository
-2. Open a terminal on the root of the project
-3. Run `bin/rails server`.
+1. [Install Ruby](https://www.ruby-lang.org/en/downloads/) if you haven't yet.
+2. Copy the repository
+3. Open a terminal on the root of the project
+4. Install all packages in the Gemfile using bundler.
+5. Run `bin/rails server`.
 
 ## License
 
